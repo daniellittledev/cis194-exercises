@@ -19,16 +19,24 @@ import           Week02.LogAnalysis             ( LogMessage(..)
                                                 , parse
                                                 , parseMessage
                                                 , whatWentWrong
+
+                                                ,readUntil
                                                 )
 
 spec :: Spec
 spec = describe "LogAnalysis" $ do
+  readUntilSpec
   parseMessageSpec
   parseSpec
   insertSpec
   buildSpec
   inOrderSpec
   whatWentWrongSpec
+
+readUntilSpec :: Spec
+readUntilSpec =
+    describe "readUntil" $ it "Currectly splits input on predicate" $ do
+      (readUntil (\x -> x == 'x') "1234x5678") `shouldBe` ("1234", "5678")
 
 parseMessageSpec :: Spec
 parseMessageSpec =

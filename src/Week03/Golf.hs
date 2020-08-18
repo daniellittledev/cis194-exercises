@@ -6,7 +6,11 @@ module Week03.Golf
 where
 
 skips :: [a] -> [[a]]
-skips = error "Week03.Golf#skips not implemented"
+skips [] = []
+
+skips :: Int -> [a] -> [[a]]
+skips _ [] = []
+skips i [] = 
 
 localMaxima :: [Integer] -> [Integer]
 localMaxima = error "Week03.Golf#localMaxima not implemented"
